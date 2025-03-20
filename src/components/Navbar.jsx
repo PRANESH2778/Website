@@ -17,7 +17,7 @@ const NavigationBar = () => {
 
         {/* Brand Logo */}
 
-        <Navbar.Brand as={Link} to="/">ABC Chartered Accountant</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Agarwal Bhaiya Company </Navbar.Brand>
 
 
 
