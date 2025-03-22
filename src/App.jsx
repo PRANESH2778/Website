@@ -1,4 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
+=======
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+>>>>>>> 3ef48b4ceabc758bcdef6257a2474577de2740c0
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';

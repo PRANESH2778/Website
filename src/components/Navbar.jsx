@@ -9,6 +9,7 @@ const Navbar = () => {
   };
 
   return (
+<<<<<<< HEAD
     <nav style={styles.navbar}>
       <div style={styles.logo}>MyWebsite</div>
       <button style={styles.hamburger} onClick={toggleMenu} aria-label="Toggle Menu">
@@ -47,6 +48,51 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
+=======
+
+    <Navbar expand="lg" bg="dark" variant="dark" fixed="top">
+
+      <Container>
+
+        {/* Brand Logo */}
+
+        <Navbar.Brand as={Link} to="/">Agarwal Bhaiya Company </Navbar.Brand>
+
+
+
+        {/* Hamburger Toggle */}
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+
+
+        {/* Navigation Menu */}
+
+        <Navbar.Collapse id="basic-navbar-nav">
+
+          <Nav className="ms-auto">
+
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+
+            <Nav.Link as={Link} to="/aboutus">About Us</Nav.Link>
+
+            <Nav.Link as={Link} to="/services">Services</Nav.Link>
+
+            <Nav.Link as={Link} to="/insights">Insights</Nav.Link>
+
+            <Nav.Link as={Link} to="/approach">Approach</Nav.Link>
+
+            <Nav.Link as={Link} to="/contactus">Contact Us</Nav.Link>
+
+          </Nav>
+
+        </Navbar.Collapse>
+
+      </Container>
+
+    </Navbar>
+
+>>>>>>> 3ef48b4ceabc758bcdef6257a2474577de2740c0
   );
 };
 
