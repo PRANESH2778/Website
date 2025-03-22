@@ -1,5 +1,4 @@
 import React from 'react';
-import contactImage from '../assets/contact.jpg';
 
 const ContactUs = () => {
   return (
