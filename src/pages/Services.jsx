@@ -1,279 +1,127 @@
-import React from 'react';
-
-import financialAdvisoryImage from '../assets/financial-advisory.jpg';
-
-
+import React, { useState } from "react";
+import financialAdvisoryImage from "../assets/financial-advisory.jpg";
+import "./Services.css";
 
 const Services = () => {
+  const [activeService, setActiveService] = useState(null);
+
+  const toggleService = (index) => {
+    setActiveService(activeService === index ? null : index);
+  };
+
+  const services = [
+    {
+      title: "Direct Taxation",
+      details: [
+        "Income Tax Return Filing",
+        "Tax Advisory & Planning",
+        "Tax Audits",
+        "Representation before Tax Authorities",
+      ],
+    },
+    {
+      title: "GST & Indirect Taxes",
+      details: [
+        "GST Registration & Compliance",
+        "GST Returns Filing & Audits",
+        "Advisory on Input Tax Credit (ITC)",
+        "GST Health Check & Litigation Support",
+      ],
+    },
+    {
+      title: "Accounting & Bookkeeping",
+      details: [
+        "Outsourced Accounting",
+        "Cloud Accounting Solutions (QuickBooks, Xero)",
+        "Financial Statement Preparation",
+        "MIS Reporting",
+      ],
+    },
+    {
+      title: "Audit & Assurance",
+      details: [
+        "Statutory Audits",
+        "Internal Audits",
+        "Forensic Audits",
+        "Stock Audits",
+      ],
+    },
+    {
+      title: "Business Advisory",
+      details: [
+        "Business Structuring & Restructuring",
+        "Due Diligence",
+        "Financial Modelling",
+        "Cash Flow & Budgeting Advisory",
+      ],
+    },
+    {
+      title: "Startup & SME Services",
+      details: [
+        "Startup Incorporation (Company, LLP, Proprietorship)",
+        "Funding & Investor Relations Support",
+        "Government Scheme Guidance (MSME, Startup India)",
+        "Compliance Management",
+      ],
+    },
+    {
+      title: "International Taxation & FEMA",
+      details: [
+        "Cross Border Tax Advisory",
+        "DTAA Advisory",
+        "FEMA Compliances",
+        "Foreign Subsidiary Setup & Compliances",
+      ],
+    },
+  ];
 
   return (
-
-    <div style={styles.container}>
-
+    <div className="services-container">
       <h1>Our Services</h1>
-
-      <p>At Agrawal Bhaiya & Company, we offer a wide range of financial services tailored to meet the needs of businesses and individuals. Our team of experienced professionals is committed to providing reliable and comprehensive financial solutions.</p>
-
-
-
-      {/* List of Services */}
-
-      <ul style={styles.servicesList}>
-
-        <li><strong>Direct Taxation</strong>
-
-          <ul style={styles.subServicesList}>
-
-            <li>Income Tax Return Filing</li>
-
-            <li>Tax Advisory & Planning</li>
-
-            <li>Tax Audits</li>
-
-            <li>Representation before Tax Authorities</li>
-
-          </ul>
-
-        </li>
-
-        <li><strong>GST & Indirect Taxes</strong>
-
-          <ul style={styles.subServicesList}>
-
-            <li>GST Registration & Compliance</li>
-
-            <li>GST Returns Filing & Audits</li>
-
-            <li>Advisory on Input Tax Credit (ITC)</li>
-
-            <li>GST Health Check & Litigation Support</li>
-
-          </ul>
-
-        </li>
-
-        <li><strong>Accounting & Bookkeeping</strong>
-
-          <ul style={styles.subServicesList}>
-
-            <li>Outsourced Accounting</li>
-
-            <li>Cloud Accounting Solutions (QuickBooks, Xero)</li>
-
-            <li>Financial Statement Preparation</li>
-
-            <li>MIS Reporting</li>
-
-          </ul>
-
-        </li>
-
-        <li><strong>Audit & Assurance</strong>
-
-          <ul style={styles.subServicesList}>
-
-            <li>Statutory Audits</li>
-
-            <li>Internal Audits</li>
-
-            <li>Forensic Audits</li>
-
-            <li>Stock Audits</li>
-
-          </ul>
-
-        </li>
-
-        <li><strong>Business Advisory</strong>
-
-          <ul style={styles.subServicesList}>
-
-            <li>Business Structuring & Restructuring</li>
-
-            <li>Due Diligence</li>
-
-            <li>Financial Modelling</li>
-
-            <li>Cash Flow & Budgeting Advisory</li>
-
-          </ul>
-
-        </li>
-
-        <li><strong>Startup & SME Services</strong>
-
-          <ul style={styles.subServicesList}>
-
-            <li>Startup Incorporation (Company, LLP, Proprietorship)</li>
-
-            <li>Funding & Investor Relations Support</li>
-
-            <li>Government Scheme Guidance (MSME, Startup India)</li>
-
-            <li>Compliance Management</li>
-
-          </ul>
-
-        </li>
-
-        <li><strong>International Taxation & FEMA</strong>
-
-          <ul style={styles.subServicesList}>
-
-            <li>Cross Border Tax Advisory</li>
-
-            <li>DTAA Advisory</li>
-
-            <li>FEMA Compliances</li>
-
-            <li>Foreign Subsidiary Setup & Compliances</li>
-
-          </ul>
-
-        </li>
-
-      </ul>
-
-
+      <p>
+        At Agrawal Bhaiya & Company, we offer a wide range of financial services
+        tailored to meet the needs of businesses and individuals. Our team of
+        experienced professionals is committed to providing reliable and
+        comprehensive financial solutions.
+      </p>
+
+      {/* Accordion for Services */}
+      <div className="accordion">
+        {services.map((service, index) => (
+          <div
+            className={`accordion-item ${
+              activeService === index ? "active" : ""
+            }`}
+            key={index}
+          >
+            <div
+              className="accordion-title"
+              onClick={() => toggleService(index)}
+            >
+              <h2>{service.title}</h2>
+              <span>{activeService === index ? "-" : "+"}</span>
+            </div>
+            {activeService === index && (
+              <ul className="accordion-content">
+                {service.details.map((detail, i) => (
+                  <li key={i}>{detail}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
 
       {/* Image */}
-
-      <img src={financialAdvisoryImage} alt="Financial Advisory" style={styles.image} />
-
+      <div className="image-container">
+        <img
+          src={financialAdvisoryImage}
+          alt="Financial Advisory"
+          className="services-image"
+        />
+      </div>
     </div>
-
   );
-
 };
-
-
-
-const styles = {
-
-  container: {
-
-    textAlign: 'center',
-
-    padding: '20px',
-
-  },
-
-  servicesList: {
-
-    listStyle: 'none',
-
-    padding: 0,
-
-    marginTop: '20px',
-
-    fontSize: '18px',
-
-    lineHeight: '1.6',
-
-    textAlign: 'left',
-
-  },
-
-  subServicesList: {
-
-    listStyle: 'none',
-
-    paddingLeft: '20px',
-
-    fontSize: '16px',
-
-    marginTop: '10px',
-
-  },
-
-  image: {
-
-    width: '80%',
-
-    height: 'auto',
-
-    borderRadius: '8px',
-
-    marginTop: '20px',
-
-  },
-
-
-
-  // Media Queries for Responsiveness
-
-  '@media (max-width: 768px)': {
-
-    container: {
-
-      padding: '15px',
-
-    },
-
-    servicesList: {
-
-      fontSize: '16px',
-
-    },
-
-    subServicesList: {
-
-      fontSize: '14px',
-
-    },
-
-    image: {
-
-      width: '90%', // Adjust image size for smaller screens
-
-    },
-
-    h1: {
-
-      fontSize: '24px',
-
-    },
-
-  },
-
-
-
-  '@media (max-width: 480px)': {
-
-    container: {
-
-      padding: '10px',
-
-    },
-
-    servicesList: {
-
-      fontSize: '14px', // Further reduce font size for small screens
-
-    },
-
-    subServicesList: {
-
-      fontSize: '12px', // Further reduce font size for small screens
-
-    },
-
-    image: {
-
-      width: '100%', // Make image full width on very small screens
-
-    },
-
-    h1: {
-
-      fontSize: '20px',
-
-    },
-
-  },
-
-};
-
-
 
 export default Services;
