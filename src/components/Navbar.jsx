@@ -9,7 +9,6 @@ const Navbar = () => {
   };
 
   return (
-<<<<<<< HEAD
     <nav style={styles.navbar}>
       <div style={styles.logo}>MyWebsite</div>
       <button style={styles.hamburger} onClick={toggleMenu} aria-label="Toggle Menu">
@@ -48,7 +47,6 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
-=======
 
     <Navbar expand="lg" bg="dark" variant="dark" fixed="top">
 
@@ -92,7 +90,6 @@ const Navbar = () => {
 
     </Navbar>
 
->>>>>>> 3ef48b4ceabc758bcdef6257a2474577de2740c0
   );
 };
 
