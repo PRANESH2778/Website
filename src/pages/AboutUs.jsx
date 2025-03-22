@@ -1,15 +1,12 @@
-<<<<<<< HEAD
+
 import React, { useEffect } from 'react';
 // import teamImage from '../assets/team.jpg';
 import { FaUsers, FaBullhorn, FaShieldAlt, FaChartLine, FaRegHandshake } from 'react-icons/fa'; // Importing icons
 import './AboutUs.css'; // Create a separate CSS file for styling
-=======
 import React from 'react';
 
 import teamImage from '../assets/office.jpg';
 
-
->>>>>>> 3ef48b4ceabc758bcdef6257a2474577de2740c0
 
 const AboutUs = () => {
   useEffect(() => {
